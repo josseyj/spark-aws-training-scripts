@@ -46,15 +46,15 @@ def parse_args():
       add_help_option=False)
   parser.add_option("-h", "--help", action="help",
                     help="Show this help message and exit")
-  parser.add_option("-s", "--slaves", type="int", default=5,
+  parser.add_option("-s", "--slaves", type="int", default=3,
       help="Number of slaves to launch (default: 1)")
-  parser.add_option("-w", "--wait", type="int", default=120,
+  parser.add_option("-w", "--wait", type="int", default=60,
       help="Seconds to wait for nodes to start (default: 120)")
   parser.add_option("-k", "--key-pair",
       help="Key pair to use on instances")
   parser.add_option("-i", "--identity-file",
       help="SSH private key file to use for logging into instances")
-  parser.add_option("-t", "--instance-type", default="m1.xlarge",
+  parser.add_option("-t", "--instance-type", default="m1.large",
       help="Type of instance to launch (default: m1.large). " +
            "WARNING: must be 64-bit; small instances won't work")
   parser.add_option("-m", "--master-instance-type", default="",
@@ -415,7 +415,7 @@ def setup_cluster(conn, master_nodes, slave_nodes, zoo_nodes, opts, deploy_ssh_k
   # NOTE: We should clone the repository before running deploy_files to
   # prevent ec2-variables.sh from being overwritten
   ssh(master, opts,
-      "rm -rf spark-ec2 && git clone -b ampcamp4 https://github.com/mesos/spark-ec2.git")
+      "rm -rf spark-ec2 && git clone -b ampcamp4 https://github.com/josseyj/spark-ec2.git")
 
   print "Deploying files to master..."
   deploy_files(conn, "deploy.generic", opts, master_nodes, slave_nodes,
