@@ -470,13 +470,13 @@ def copy_ampcamp_data_from_ebs(master_nodes, opts):
 
   print "Copying AMP Camp MovieLens data..."
   ssh(master, opts,
-      "/root/ephemeral-hdfs/bin/hadoop fs -copyFromLocal /ampcamp-data/movielens /movielens")
+      "/root/ephemeral-hdfs/bin/hadoop fs -copyFromLocal /ampcamp-data/movielens /movielens &")
   print "Copying AMP Camp Wikipedia graph data..."
   ssh(master, opts,
-      "/root/ephemeral-hdfs/bin/hadoop fs -copyFromLocal /ampcamp-data/wiki_links /wiki_links")
+      "/root/ephemeral-hdfs/bin/hadoop fs -copyFromLocal /ampcamp-data/wiki_links /wiki_links &")
   print "Copying AMP Camp Wikipedia pagecount data..."
   ssh(master, opts,
-      "/root/ephemeral-hdfs/bin/hadoop fs -copyFromLocal /ampcamp-data/pagecounts /wiki/pagecounts")
+      "/root/ephemeral-hdfs/bin/hadoop fs -copyFromLocal /ampcamp-data/pagecounts /wiki/pagecounts &")
 #  print "Copying AMP Camp Wikipedia featurized data..."
 #  ssh(master, opts,
 #      "/root/ephemeral-hdfs/bin/hadoop fs -copyFromLocal /ampcamp-data/wikistats_featurized_new /wikistats_featurized")
