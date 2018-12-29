@@ -12,3 +12,7 @@ Scripts to launch cluster used for Strata
   * Run `spark/bin/spark-shell` on the master
   
   
+## Troubleshooting
+
+* `spark-shell` in the -master- throwing error `java.io.FileNotFoundException: /root/tachyon/target/tachyon-0.3.0-jar-with-dependencies.jar (No such file or directory)`
+ * Run `./spark-ec2/tachyon/init.sh`
